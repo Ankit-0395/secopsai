@@ -37,7 +37,18 @@ pipeline {
         stage('Deploy to Railway') {
             steps {
                 sh 'npm install -g @railway/cli'
-                sh 'railway up --detach'
+
+                dir('backend') {
+
+                    sh '''
+                    railway link \
+                    --project renewed-courtesy \
+                    --environment production \
+                    --service determined-cooperation
+                    '''
+
+                    sh 'railway up --detach'
+                }
             }
         }
     }
