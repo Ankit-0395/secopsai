@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         GROQ_API_KEY = credentials('GROQ_API_KEY')
-        RAILWAY_TOKEN = credentials('RAILWAY_TOKEN')
     }
 
     stages {
@@ -37,18 +36,7 @@ pipeline {
 
         stage('Deploy to Railway') {
             steps {
-
                 sh 'npm install -g @railway/cli'
-
-                 sh 'railway whoami'
-
-                sh '''
-                railway link \
-                --project renewed-courtesy \
-                --environment production \
-                --service secopsai
-                '''
-
                 sh 'railway up --detach'
             }
         }
