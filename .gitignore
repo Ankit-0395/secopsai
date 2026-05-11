@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Python
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Docker
+*.log

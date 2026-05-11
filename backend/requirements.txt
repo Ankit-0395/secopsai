@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+httpx
+python-dotenv
+bandit
+pip-audit
+pydantic
+reportlab
+requests
