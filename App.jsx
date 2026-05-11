@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-const API = "http://localhost:8000";
+const API = "https://determined-cooperation-production-655d.up.railway.app";
 
 const SEVERITY_COLORS = {
   HIGH: "#ff4d4d",
