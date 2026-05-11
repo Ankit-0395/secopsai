@@ -7,11 +7,13 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout') {
             steps {
-              git branch: 'main',
-    credentialsId: 'github-creds',
-    url: 'https://github.com/Ankit-0395/secopsai.git'
+                deleteDir()
+
+                git branch: 'main',
+                    url: 'https://github.com/Ankit-0395/secopsai.git'
             }
         }
 
@@ -36,7 +38,7 @@ pipeline {
         stage('Deploy to Railway') {
             steps {
                 sh 'npm install -g @railway/cli'
-               sh 'railway up --service determined-cooperation'
+                sh 'railway up --service determined-cooperation'
             }
         }
     }
@@ -45,6 +47,7 @@ pipeline {
         success {
             echo 'Deployment successful!'
         }
+
         failure {
             echo 'Build failed!'
         }
