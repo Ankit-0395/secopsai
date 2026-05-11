@@ -9,8 +9,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/ankitkumar/SecureOpsAI.git'
+              git branch: 'main',
+    credentialsId: 'github-creds',
+    url: 'https://github.com/Ankit-0395/secopsai.git'
             }
         }
 
