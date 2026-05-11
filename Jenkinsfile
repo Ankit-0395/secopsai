@@ -35,10 +35,12 @@ pipeline {
             }
         }
 
-        stage('Deploy to Railway') {
-            steps {
-                sh 'npm install -g @railway/cli'
-                sh 'railway up --service determined-cooperation'
+       stage('Deploy to Railway') {
+    steps {
+        sh 'npm install -g @railway/cli'
+        sh 'railway up --detach'
+    }
+}
             }
         }
     }
