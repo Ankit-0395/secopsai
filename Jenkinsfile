@@ -37,13 +37,23 @@ pipeline {
 
         stage('Deploy to Railway') {
             steps {
+
                 sh 'npm install -g @railway/cli'
+
+                sh '''
+                railway link \
+                --project renewed-courtesy \
+                --environment production \
+                --service secopsai
+                '''
+
                 sh 'railway up --detach'
             }
         }
     }
 
     post {
+
         success {
             echo 'Deployment successful!'
         }
