@@ -40,6 +40,8 @@ pipeline {
 
                 sh 'npm install -g @railway/cli'
 
+                 sh 'railway whoami'
+
                 sh '''
                 railway link \
                 --project renewed-courtesy \
